@@ -1,0 +1,23 @@
+.shop-container {
+    display: grid;
+    grid-template-columns: 1fr 4.3fr;
+}
+
+.side-bar {
+    border-right: solid;
+    border-color: black;
+}
+
+.categories-list {
+    list-style-type: none;
+}
+
+.cat {
+    font-size: 23px;
+}
+
+.categories-list li {
+    margin-top: 10%;
+    font-size: 20px;
+}
+
