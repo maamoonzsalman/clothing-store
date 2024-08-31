@@ -7,6 +7,10 @@ import ProductCard from '../components/ProductCard';
 const ShopPage = () => {
     const [items, setItems] = useState([])
     const [loading, setLoading] = useState(true);
+    const [category, setCategory] = useState('All')
+    const [filteredItems, setFilteredItems] = useState([]);
+
+    // function to change category on click
     
     useEffect(() => {
         // Fetch data from the Fake Store API
@@ -25,9 +29,22 @@ const ShopPage = () => {
         fetchProducts();
       }, []); 
 
+    useEffect(() => {
+        if (category === 'All') {
+            setFilteredItems(items)
+        } else {
+            const filtered = items.filter(item => item.category === category.toLowerCase())
+            setFilteredItems(filtered);
+        }
+    }, [category, items])
+
     
       if (loading) {
         return <p>Loading products...</p>;
+    }
+
+    const handleCategoryChange = (category) => {
+        setCategory(category)
     }
   
 
@@ -38,16 +55,16 @@ const ShopPage = () => {
                 <div className='sidebar'>
                     <h3 className='cat'>Categories</h3>
                     <ul className="categories-list">
-                        <li><button>All</button></li>
-                        <li>Electronics</li>
-                        <li>Jewelry</li>
-                        <li>Men's Clothing</li>
-                        <li>Women's Clothing</li>
+                        <li><button className='category-btn' onClick={() => handleCategoryChange('All')}>All</button></li>
+                        <li><button className='category-btn' onClick={() => handleCategoryChange('electronics')}>Electronics</button></li>
+                        <li><button className='category-btn' onClick={() => handleCategoryChange('jewelery')}>Jewelry</button></li>
+                        <li><button className='category-btn' onClick={() => handleCategoryChange("men's clothing")}>Men's Clothing</button></li>
+                        <li><button className='category-btn' onClick={() => handleCategoryChange("women's clothing")}>Women's Clothing</button></li>
                     </ul>
                 </div>
                 
                 <div className="products">
-                    {items.map(product => (
+                    {filteredItems.map(product => (
                         <ProductCard id={product.id} product={product} />
                     ))}
                 </div>
