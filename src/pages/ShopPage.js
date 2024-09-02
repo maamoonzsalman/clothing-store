@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from "react-router-dom"
 import '../styles/ShopPage.css';
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
@@ -50,7 +51,6 @@ const ShopPage = () => {
 
     return (
         <>
-            <NavBar />
             <div className='shop-container'>
                 <div className='sidebar'>
                     <h3 className='cat'>Categories</h3>
@@ -69,7 +69,6 @@ const ShopPage = () => {
                     ))}
                 </div>
             </div>
-            <Footer />
         </>
     )
 }

@@ -1,0 +1,8 @@
+.cart-container {
+    margin: 3%;
+    display: flex;
+}
+
+.cart-left {
+    margin-right: 15%;
+}

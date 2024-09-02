@@ -1,12 +1,13 @@
 import React from 'react';
 import '../styles/HomePage.css'; // Create this CSS file for styles
+import { Link } from "react-router-dom"
 import image from '../Assets/main-img.png'
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
+
 const HomePage = () => {
   return (
     <>    
-        <NavBar />
             <section className="hero-section">
             <div className="hero-content">
                 <h1>Find Products<br/> That Matches<br/> Your Style</h1>
@@ -14,7 +15,7 @@ const HomePage = () => {
                 Browse through our diverse range of meticulously crafted garments,
                 designed to bring out your individuality and cater to your sense of style.
                 </p>
-                <button className="shop-button">Shop now</button>
+                <button className="shop-button"><Link to="/shop" className="shop-button">Shop now </Link></button>
                 <div className="stats">
                 <div className="stat-item">
                     <h3>200+</h3>
@@ -34,7 +35,6 @@ const HomePage = () => {
                 <img src={image} alt="Stylish outfits" />
             </div>
             </section>
-        <Footer />
     </>
   );
 };

@@ -11,6 +11,8 @@
 
 .nav-item {
     margin: 3%;
+    color: white;
+    text-decoration: none;
 }
 
 .nav-bar > .nav-item:first-child {
