@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/HomePage.css'; // Create this CSS file for styles
+import '../styles/HomePage.css'; 
 import { Link } from "react-router-dom"
 import image from '../Assets/main-img.png'
 import NavBar from '../components/NavBar';

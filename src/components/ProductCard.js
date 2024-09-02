@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import '../styles/ProductCard.css'
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, addToCart}) => {
+
+  /* Add item to cart function */
+  /* Remove item from cart function */
+
+
     return (
         <div className="product-card">
                         <img src={product.image} alt={product.title} className="product-image" />
@@ -13,7 +18,7 @@ const ProductCard = ({ product }) => {
                             <span className="rating-count">({product.rating.count})</span>
                           </div>
                           <div className="product-price">${product.price}</div>
-                          <button className="add-to-cart-button">Add to cart</button>
+                          <button className="add-to-cart-button" onClick={() => addToCart(product)}>Add to cart</button>
                         </div>
         </div>
     )

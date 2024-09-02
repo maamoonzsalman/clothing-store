@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from "react-router-dom"
 import '../styles/ShopPage.css';
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import ProductCard from '../components/ProductCard';
 
-const ShopPage = () => {
+const ShopPage = ({ addToCart }) => {
     const [items, setItems] = useState([])
     const [loading, setLoading] = useState(true);
     const [category, setCategory] = useState('All')
@@ -65,7 +64,7 @@ const ShopPage = () => {
                 
                 <div className="products">
                     {filteredItems.map(product => (
-                        <ProductCard id={product.id} product={product} />
+                        <ProductCard id={product.id} product={product} addToCart={addToCart} />
                     ))}
                 </div>
             </div>

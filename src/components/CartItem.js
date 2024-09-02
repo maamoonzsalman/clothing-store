@@ -1,17 +1,16 @@
 import React from "react";
 import '../styles/CartItem.css'
 
-const CartItem = ({product}) => {
+const CartItem = ({item}) => {
     return (
-        <div className="product-card">
-      <img src={product.image} alt={product.title} className="product-image" />
-      <div className="product-details">
-        <div className="product-title">{product.title}</div>
-        <div className="product-price">${product.price}</div>
+      <div className="cart-item">
+      <img src={item.image} alt={item.title} className="cart-item-image" />
+      <div className="cart-item-details">
+        <h3 className="cart-item-title">{item.title}</h3>
+        <div className="cart-item-price">${item.price}</div>
       </div>
-      <div className="product-actions">
-        <button className="remove-button">✖</button>
-        <div className="product-quantity">
+      <div className="cart-item-actions">
+        <div className="cart-item-quantity">
           <button className="quantity-button">-</button>
           <span>1</span>
           <button className="quantity-button">+</button>
@@ -20,3 +19,5 @@ const CartItem = ({product}) => {
     </div>
     )
 }
+
+export default CartItem;
