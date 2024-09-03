@@ -1,9 +1,10 @@
 import React from "react";
 import '../styles/CartItem.css'
 
-const CartItem = ({item}) => {
+const CartItem = ({item, removeFromCart}) => {
     return (
       <div className="cart-item">
+        <button className="remove-button" onClick={() => removeFromCart(item)}>✖</button> {/* Added remove button */}
       <img src={item.image} alt={item.title} className="cart-item-image" />
       <div className="cart-item-details">
         <h3 className="cart-item-title">{item.title}</h3>

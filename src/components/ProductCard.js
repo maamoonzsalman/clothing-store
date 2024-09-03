@@ -18,10 +18,18 @@ const ProductCard = ({ product, addToCart}) => {
                             <span className="rating-count">({product.rating.count})</span>
                           </div>
                           <div className="product-price">${product.price}</div>
-                          <button className="add-to-cart-button" onClick={() => addToCart(product)}>Add to cart</button>
+                          {product.inCart === true ? (
+                            <div className="in-cart-label-container">
+                            <button className="in-cart-label">In the cart<span className="checkmark">✔️</span></button>
+                          </div>
+                          ) : (
+                            <button className="add-to-cart-button" onClick={() => addToCart(product)}>Add to cart</button>
+                          )}
                         </div>
         </div>
     )
 }
 
 export default ProductCard;
+
+

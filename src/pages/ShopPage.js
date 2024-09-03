@@ -4,8 +4,7 @@ import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import ProductCard from '../components/ProductCard';
 
-const ShopPage = ({ addToCart }) => {
-    const [items, setItems] = useState([])
+const ShopPage = ({ items, setItems, addToCart }) => {
     const [loading, setLoading] = useState(true);
     const [category, setCategory] = useState('All')
     const [filteredItems, setFilteredItems] = useState([]);
@@ -16,9 +15,19 @@ const ShopPage = ({ addToCart }) => {
         // Fetch data from the Fake Store API
         const fetchProducts = async () => {
           try {
+            console.log('heyo')
             const response = await fetch('https://fakestoreapi.com/products');
             const data = await response.json();
-            setItems(data); // Store the products in the state
+
+            const updatedData = data.map((item) => {
+                const existingItem = items.find(p => p.id === item.id);
+                return {
+                  ...item,
+                  inCart: existingItem ? existingItem.inCart : false,  // Preserve the `inCart` state if it already exists
+                };
+              });
+
+            setItems(updatedData); // Store the products in the state
             setLoading(false);
           } catch (error) {
             console.error('Error fetching the products:', error);

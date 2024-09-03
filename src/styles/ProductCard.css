@@ -70,4 +70,15 @@
   .add-to-cart-button:hover {
     background-color: #333;
   }
+
+  .in-cart-label {
+    font-size: 20px;
+    font-weight: bold;
+    background-color: white;
+  }
+
+  .in-cart-label:hover {
+    color: white;
+    background-color: black;
+  }
   
