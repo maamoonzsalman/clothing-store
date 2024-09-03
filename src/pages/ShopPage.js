@@ -15,7 +15,6 @@ const ShopPage = ({ items, setItems, addToCart }) => {
         // Fetch data from the Fake Store API
         const fetchProducts = async () => {
           try {
-            console.log('heyo')
             const response = await fetch('https://fakestoreapi.com/products');
             const data = await response.json();
 
@@ -24,6 +23,7 @@ const ShopPage = ({ items, setItems, addToCart }) => {
                 return {
                   ...item,
                   inCart: existingItem ? existingItem.inCart : false,  // Preserve the `inCart` state if it already exists
+                  quantity: existingItem ? existingItem.quantity : 0,
                 };
               });
 

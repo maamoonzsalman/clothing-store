@@ -3,7 +3,7 @@ import "../styles/CartPage.css"
 import CartSummary from '../components/CartSummary';
 import CartItem from '../components/CartItem';
 
-const CartPage = ({cartItems, removeFromCart}) => {
+const CartPage = ({cartItems, removeFromCart, addToQuantity, removeFromQuantity}) => {
     return (
         <div className="cart-container">
             <div className="cart-left">   
@@ -14,7 +14,7 @@ const CartPage = ({cartItems, removeFromCart}) => {
                         <p>Your cart is empty</p>
                     ) : (
                     cartItems.map((item) => (
-                        <CartItem key={item.id} item={item} removeFromCart={removeFromCart} />
+                        <CartItem key={item.id} item={item} removeFromCart={removeFromCart} addToQuantity={addToQuantity} removeFromQuantity={removeFromQuantity} />
                         ))
                     )}
                     </div>
@@ -22,7 +22,7 @@ const CartPage = ({cartItems, removeFromCart}) => {
             </div>
             <div className="cart-right">
                 <div className="cart-summary">
-                    <CartSummary />
+                    <CartSummary cartItems={cartItems} />
                 </div>
             </div>
         </div>

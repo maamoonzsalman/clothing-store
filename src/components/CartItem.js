@@ -1,7 +1,9 @@
 import React from "react";
 import '../styles/CartItem.css'
+import { useState } from "react";
 
-const CartItem = ({item, removeFromCart}) => {
+const CartItem = ({item, removeFromCart, addToQuantity, removeFromQuantity}) => {
+    
     return (
       <div className="cart-item">
         <button className="remove-button" onClick={() => removeFromCart(item)}>✖</button> {/* Added remove button */}
@@ -12,9 +14,9 @@ const CartItem = ({item, removeFromCart}) => {
       </div>
       <div className="cart-item-actions">
         <div className="cart-item-quantity">
-          <button className="quantity-button">-</button>
-          <span>1</span>
-          <button className="quantity-button">+</button>
+          <button className="quantity-button" onClick={() => removeFromQuantity(item)} >-</button>
+          {item.quantity}
+          <button className="quantity-button" onClick={() => addToQuantity(item)}>+</button>
         </div>
       </div>
     </div>
